@@ -24,7 +24,7 @@ export default function Home() {
         }}
       />
 
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-5" style={{ width: '100vw', height: '100vh' }}>
         <WatchScene />
       </div>
 
