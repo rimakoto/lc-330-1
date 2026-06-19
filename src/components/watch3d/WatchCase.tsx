@@ -42,7 +42,7 @@ export function WatchCase() {
 
   return (
     <group>
-      <mesh rotation={[Math.PI / 2, 0, 0]}>
+      <mesh>
         <primitive object={caseBodyGeom} attach="geometry" />
         <meshStandardMaterial
           color="#d4af37"
@@ -53,7 +53,7 @@ export function WatchCase() {
         />
       </mesh>
 
-      <mesh position={[0, 0, caseThickness * 0.48]} rotation={[0, 0, 0]}>
+      <mesh position={[0, 0, caseThickness * 0.48]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry
           args={[outerRadius - bezelWidth - 0.01, outerRadius - bezelWidth - 0.01, crystalThickness, 64]}
         />
@@ -72,7 +72,7 @@ export function WatchCase() {
         />
       </mesh>
 
-      <mesh position={[0, 0, -caseThickness * 0.48]} rotation={[0, 0, 0]}>
+      <mesh position={[0, 0, -caseThickness * 0.48]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry
           args={[outerRadius - bezelWidth - 0.01, outerRadius - bezelWidth - 0.01, crystalThickness, 64]}
         />
@@ -90,7 +90,7 @@ export function WatchCase() {
         />
       </mesh>
 
-      <group position={[0, 0, -0.02]} rotation={[Math.PI / 2, 0, 0]}>
+      <group position={[0, 0, -0.02]}>
         <mesh position={[0, 0, -0.2]}>
           <primitive object={dialGeom} attach="geometry" />
           <meshStandardMaterial
@@ -126,13 +126,13 @@ export function WatchCase() {
           );
         })}
 
-        <mesh position={[0, 0, -0.16]} rotation={[0, 0, 0]}>
-          <cylinderGeometry args={[0.04, 0.04, 0.06, 16]} />
+        <mesh position={[0, 0, -0.16]}>
+          <boxGeometry args={[0.08, 0.08, 0.06]} />
           <meshStandardMaterial color="#4a3a1a" metalness={0.9} roughness={0.25} />
         </mesh>
       </group>
 
-      <mesh position={[outerRadius + 0.05, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+      <mesh position={[0, outerRadius + 0.05, 0]}>
         <primitive object={crownGeom} attach="geometry" />
         <meshStandardMaterial
           color="#c8a050"
@@ -146,8 +146,7 @@ export function WatchCase() {
       {[0, 1, 2].map((i) => (
         <mesh
           key={`bow-${i}`}
-          position={[0, outerRadius - 0.05 + i * 0.04, 0]}
-          rotation={[Math.PI / 2, 0, 0]}
+          position={[0, -(outerRadius - 0.05 + i * 0.04), 0]}
         >
           <torusGeometry args={[0.2, 0.035, 12, 36, Math.PI]} />
           <meshStandardMaterial

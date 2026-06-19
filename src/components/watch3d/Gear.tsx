@@ -68,7 +68,7 @@ export function Gear({ config, animationOffset = 0 }: GearProps) {
     <group position={config.position}>
       <mesh
         ref={meshRef}
-        rotation={[Math.PI / 2, 0, initialRotZ]}
+        rotation={[0, 0, initialRotZ]}
         scale={scale}
         onPointerOver={(e) => {
           e.stopPropagation();
@@ -95,9 +95,9 @@ export function Gear({ config, animationOffset = 0 }: GearProps) {
         />
       </mesh>
 
-      <mesh position={[0, 0, -config.thickness * 0.5 - 0.02]} rotation={[Math.PI / 2, 0, 0]}>
-        <cylinderGeometry
-          args={[Math.max(0.05, config.radius * 0.1), Math.max(0.05, config.radius * 0.1), 0.02, 24]}
+      <mesh position={[0, 0, -config.thickness * 0.5 - 0.02]}>
+        <boxGeometry
+          args={[Math.max(0.1, config.radius * 0.2), Math.max(0.1, config.radius * 0.2), 0.02]}
         />
         <meshStandardMaterial color="#4a3a1a" metalness={0.7} roughness={0.35} />
       </mesh>

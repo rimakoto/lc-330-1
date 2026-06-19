@@ -133,7 +133,7 @@ export function WatchScene() {
       <Canvas
         gl={{ antialias: true, alpha: false, powerPreference: 'default' }}
         dpr={[1, 1.5]}
-        camera={{ position: [0, 2.2, 6.8], fov: 45, near: 0.1, far: 200 }}
+        camera={{ position: [3, 1.0, 10.5], fov: 50, near: 0.1, far: 200 }}
         shadows={false}
         style={{ width: '556px', height: '848px', display: 'block' }}
         onCreated={({ gl, camera }) => {

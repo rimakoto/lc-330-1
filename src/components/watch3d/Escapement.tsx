@@ -66,14 +66,14 @@ export function Escapement() {
     <group position={offset}>
       {movement.hasTourbillon && (
         <group ref={cageRef}>
-          <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+          <mesh position={[0, 0, 0]}>
             <primitive object={tourbillonCageGeom} attach="geometry" />
             <meshStandardMaterial color="#8b7355" metalness={0.9} roughness={0.2} />
           </mesh>
           {[0, 1, 2, 3].map((i) => (
             <mesh
               key={i}
-              rotation={[Math.PI / 2, 0, (i * Math.PI) / 2]}
+              rotation={[0, 0, (i * Math.PI) / 2]}
               position={[0, 0, -0.08]}
             >
               <boxGeometry args={[0.015, 0.9, 0.04]} />
@@ -122,7 +122,7 @@ function EscapementCore({
   return (
     <>
       <group ref={balanceRef}>
-        <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <mesh>
           <primitive object={balanceGeom} attach="geometry" />
           <meshStandardMaterial
             color="#c0a060"
@@ -135,7 +135,7 @@ function EscapementCore({
         {[0, 1, 2, 3, 4].map((i) => (
           <mesh
             key={i}
-            rotation={[Math.PI / 2, 0, (i * Math.PI * 2) / 5]}
+            rotation={[0, 0, (i * Math.PI * 2) / 5]}
           >
             <boxGeometry args={[0.01, 0.86, 0.03]} />
             <meshStandardMaterial color="#a08050" metalness={0.9} roughness={0.22} />
@@ -143,7 +143,7 @@ function EscapementCore({
         ))}
 
         <group position={[0, 0, 0.08]}>
-          <mesh ref={hairspringRef} rotation={[Math.PI / 2, 0, 0]}>
+          <mesh ref={hairspringRef}>
             <primitive object={hairspringGeom} attach="geometry" />
             <meshStandardMaterial
               color="#4a88b8"
@@ -156,13 +156,13 @@ function EscapementCore({
         </group>
 
         <mesh position={[0, 0, 0.16]}>
-          <cylinderGeometry args={[0.025, 0.025, 0.05, 16]} />
+          <boxGeometry args={[0.05, 0.05, 0.05]} />
           <meshStandardMaterial color="#5a4a30" metalness={0.85} roughness={0.3} />
         </mesh>
       </group>
 
       <group ref={palletRef} position={[-0.4, -0.05, 0]}>
-        <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <mesh>
           <boxGeometry args={[0.48, 0.06, 0.04]} />
           <meshStandardMaterial
             color="#707a82"
@@ -170,16 +170,16 @@ function EscapementCore({
             roughness={0.2}
           />
         </mesh>
-        <mesh position={[0.2, 0.05, 0]} rotation={[Math.PI / 2, 0, 0.3]}>
+        <mesh position={[0.2, 0.05, 0]} rotation={[0, 0, 0.3]}>
           <boxGeometry args={[0.08, 0.02, 0.03]} />
           <meshStandardMaterial color="#505860" metalness={0.92} roughness={0.18} />
         </mesh>
-        <mesh position={[0.2, -0.05, 0]} rotation={[Math.PI / 2, 0, -0.3]}>
+        <mesh position={[0.2, -0.05, 0]} rotation={[0, 0, -0.3]}>
           <boxGeometry args={[0.08, 0.02, 0.03]} />
           <meshStandardMaterial color="#505860" metalness={0.92} roughness={0.18} />
         </mesh>
         <mesh position={[-0.2, 0.1, 0]}>
-          <cylinderGeometry args={[0.02, 0.02, 0.06, 12]} />
+          <boxGeometry args={[0.04, 0.04, 0.06]} />
           <meshStandardMaterial color="#606870" metalness={0.9} roughness={0.2} />
         </mesh>
       </group>

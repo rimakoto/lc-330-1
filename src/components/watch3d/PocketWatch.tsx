@@ -15,11 +15,9 @@ export function PocketWatch() {
   });
 
   return (
-    <group ref={groupRef} position={[0, 0, 0]}>
+    <group ref={groupRef} position={[0, 0, 0]} scale={0.95}>
       <WatchCase />
-      <group position={[0, 0, 0]} rotation={[Math.PI, 0, 0]}>
-        <GearTrain />
-      </group>
+      <GearTrain />
       <Escapement />
     </group>
   );
